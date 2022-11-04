@@ -2,10 +2,10 @@ import React from 'react'
 
 type Props = {}
 
-const Admin = (props: Props) => {
+const AdminPage = (props: Props) => {
   return (
     <div>Admin</div>
   )
 }
 
-export default Admin
+export default AdminPage
