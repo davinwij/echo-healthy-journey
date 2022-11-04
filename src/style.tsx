@@ -70,7 +70,8 @@ const HomeStyle = {
         color: 'white',
         border: 'none',
         cursor: 'pointer',
-        boxShadow: '0px 6px 8px #00000025'
+        boxShadow: '0px 6px 8px #00000025',
+        marginTop: '-80px'
     },
     button2: {
         width: '200px',
@@ -80,7 +81,7 @@ const HomeStyle = {
         color: 'white',
         border: 'none',
         cursor: 'pointer',
-        boxShadow: '0px 6px 8px #00000025'
+        boxShadow: '0px 6px 8px #00000025'        
     },
 }
 
