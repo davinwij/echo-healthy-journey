@@ -44,7 +44,7 @@ const Form = (props: Props) => {
                     </Box>
                 </Box>
                 <Box sx={{flex: 5}}>
-                    <form onSubmit={handleSubmit(onSubmit)} style={{display: 'flex', gap: '20px', flexDirection: 'column'}}>
+                    <form onSubmit={handleSubmit(onSubmit)} style={{display: 'flex', gap: '15px', flexDirection: 'column'}}>
                         <Box>                        
                             <label htmlFor="name">Nama</label>
                             <input type="text" id='name' {...register('name', {

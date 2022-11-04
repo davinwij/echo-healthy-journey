@@ -12,7 +12,7 @@ const SuccessMessage = (props: Props) => {
         <Grid item xs={12} sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', height: '600px'}}>
             <Container sx={{ height: '90%', minWidth: '350px', width: '30%', display: 'flex', flexDirection: 'column', backgroundColor: 'white', borderRadius: '25px', alignItems: 'center'}}>
                 <Typography variant='h1' sx={{fontFamily: 'Eczar', color: '#F77F00', marginTop: 2}}>Thankyou!</Typography>
-                <Typography variant='h1' sx={{fontFamily: 'Eczar', color: '#F77F00'}}>{localStorage.getItem('nama')}</Typography>
+                <Typography variant='h1' sx={{fontFamily: 'Eczar', color: '#F77F00'}}>{localStorage.getItem('nama')?.split(' ')[0]}</Typography>
                 <Typography variant='subtitle2' sx={{fontFamily: 'Montserrat', color: '#AF5A00', textAlign: 'center', marginTop: 2}}>For Submitting your JOURNEY with us!</Typography>
                 <Typography variant='subtitle2' sx={{fontFamily: 'Montserrat', color: '#AF5A00', textAlign: 'center'}}>On</Typography>
                 <Typography variant='subtitle2' sx={{fontFamily: 'Montserrat', color: '#AF5A00', textAlign: 'center'}}>{localStorage.getItem('date')}</Typography>
