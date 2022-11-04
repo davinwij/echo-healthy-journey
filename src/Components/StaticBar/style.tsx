@@ -52,7 +52,8 @@ const TopStyle = {
         justifyContent: 'center',
         alignItems: 'center',
         flexDirection: 'column',
-        marginBottom: 5
+        marginTop: '-30px',
+        marginBottom: '50px'
     }
 }
 
