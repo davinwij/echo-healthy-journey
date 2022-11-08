@@ -38,7 +38,7 @@ const AdminPage = (props: Props) => {
             >
               <Stack spacing={2}>
                 <label htmlFor="Access Key">Input Access Key</label>
-                <input type="password" {...register('key', {
+                <input style={{height: '20px', borderRadius: 1}} type="password" {...register('key', {
                   required: true
                 })}/>
                 <button type='submit'>Submit</button>
