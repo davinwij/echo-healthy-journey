@@ -3,6 +3,8 @@ import { FormStyle, theme } from '../../style'
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import Button from '../Home/Button';
 import { useForm } from 'react-hook-form'
+import { userJourney } from '../../Interfaces/userJourney.interfaces';
+import { submitJourney } from '../../Services/UserJourney';
 
 type Props = {
     back: () => void;
@@ -17,11 +19,23 @@ const Form = (props: Props) => {
     const { register, handleSubmit, formState: { errors } } = useForm({ shouldUseNativeValidation: true });
     
     const onSubmit = (data: any) => {
+        const completeData = {
+            ...data,
+            type: props.type
+        }
+
         const date = new Date(Date.now())
-        props.done()
-        console.log(data)
-        localStorage.setItem('nama', data.name)    
-        localStorage.setItem('date', date.toDateString())    
+
+        submitJourney(completeData)
+        .then(r => {
+            localStorage.setItem('nama', data.nama)    
+            localStorage.setItem('date', date.toDateString())    
+            props.done()
+        })
+        .catch(err => {
+            alert(err)
+        })
+
     }
 
   return (
@@ -47,7 +61,7 @@ const Form = (props: Props) => {
                     <form onSubmit={handleSubmit(onSubmit)} style={{display: 'flex', gap: '15px', flexDirection: 'column'}}>
                         <Box>                        
                             <label htmlFor="name">Nama</label>
-                            <input type="text" id='name' {...register('name', {
+                            <input type="text" id='name' {...register('nama', {
                                 required: true,
                                 maxLength: 25,                        
                             })}/>
@@ -55,7 +69,7 @@ const Form = (props: Props) => {
                         </Box>
                         <Box>                        
                             <label htmlFor="hp">No. Handphone</label>
-                            <input type="text" id='hp' {...register('hp', {
+                            <input type="text" id='hp' {...register('no_hp', {
                                 required: true,
                                 minLength: 10,                            
                                 maxLength: 15,                            
@@ -67,11 +81,11 @@ const Form = (props: Props) => {
                             <label htmlFor="desc">{props.type}</label>
                             <textarea id="desc" cols={30} rows={10} {...register('desc', {
                                 required: true,
-                                minLength: 50,
+                                minLength: 20,
                                 maxLength: 500
                             })}></textarea>
                             <p>{errors.desc?.type === 'required' && "Description can't be empty!"}</p>
-                            <p>{errors.desc?.type === 'minLength' && "Minimum 50 character"}</p>
+                            <p>{errors.desc?.type === 'minLength' && "Minimum 20 character"}</p>
                         </Box>
                     </form>
                 </Box>
